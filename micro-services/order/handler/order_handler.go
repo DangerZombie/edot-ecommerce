@@ -33,7 +33,7 @@ func (h *OrderHandler) Checkout(c echo.Context) error {
 	return c.JSON(http.StatusOK, order)
 }
 
-func (h *OrderHandler) PaymentHandler(c echo.Context) error {
+func (h *OrderHandler) Payment(c echo.Context) error {
 	orderIdParam := c.Param("orderId")
 	orderId, err := strconv.ParseInt(orderIdParam, 10, 64)
 	if err != nil {
@@ -58,5 +58,5 @@ func (h *OrderHandler) PaymentHandler(c echo.Context) error {
 func RegisterOrderRoutes(e *echo.Echo, orderService service.OrderService) {
 	handler := NewOrderHandler(orderService)
 	e.POST("/order/checkout", handler.Checkout, middleware.IsAuthenticated)
-	e.POST("/order/payment/:orderId", handler.PaymentHandler, middleware.IsAuthenticated)
+	e.POST("/order/payment/:orderId", handler.Payment, middleware.IsAuthenticated)
 }

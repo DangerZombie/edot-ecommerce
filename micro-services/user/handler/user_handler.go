@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"errors"
 	"monorepo-ecommerce/micro-services/user/service"
 	"net/http"
 
@@ -50,7 +49,7 @@ func (h *UserHandler) LoginUser(c echo.Context) error {
 
 	user, err := h.UserService.LoginUser(req.Email, req.Phone, req.Password)
 	if err != nil {
-		if !errors.Is(err, errors.New("user not found")) {
+		if err.Error() == "user not found" {
 			return c.JSON(http.StatusUnauthorized, map[string]string{"error": err.Error()})
 		}
 		return c.JSON(http.StatusBadRequest, map[string]string{"error": err.Error()})

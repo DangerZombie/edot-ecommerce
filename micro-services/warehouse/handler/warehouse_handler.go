@@ -121,9 +121,9 @@ func (h *WarehouseHandler) ProceedOrder(c echo.Context) error {
 
 func RegisterWarehouseRoutes(e *echo.Echo, warehouseService service.WarehouseService) {
 	handler := NewWarehouseHandler(warehouseService)
-	e.POST("/warehouse/stock/add", handler.AddStock)                            // direct API
-	e.POST("/warehouse/stock/remove", handler.RemoveStock)                      // direct API
-	e.POST("/warehouse/stock/transfer-product", handler.TransferProduct)        // direct API
-	e.POST("/warehouse/stock/active-deactive", handler.ActiveDeactiveWarehouse) // direct API
+	e.POST("/warehouse/stock/add", handler.AddStock)
+	e.POST("/warehouse/stock/remove", handler.RemoveStock)
+	e.POST("/warehouse/stock/transfer-product", handler.TransferProduct)
+	e.POST("/warehouse/stock/active-deactive", handler.ActiveDeactiveWarehouse)
 	e.POST("/warehouse/stock/proceed-order", handler.ProceedOrder)
 }
