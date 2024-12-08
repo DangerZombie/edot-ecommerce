@@ -1,0 +1,67 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Run User Service",
+        "type": "go",
+        "request": "launch",
+        "mode": "auto",
+        "program": "${workspaceFolder}/micro-services/user",
+        "env": {
+          "PORT": "7001"
+        },
+      },
+      {
+        "name": "Run Product Service",
+        "type": "go",
+        "request": "launch",
+        "mode": "auto",
+        "program": "${workspaceFolder}/micro-services/product",
+        "env": {
+          "PORT": "7002"
+        },
+      },
+      {
+        "name": "Run Order Service",
+        "type": "go",
+        "request": "launch",
+        "mode": "auto",
+        "program": "${workspaceFolder}/micro-services/order",
+        "env": {
+          "PORT": "7003"
+        },
+      },
+      {
+        "name": "Run Shop Service",
+        "type": "go",
+        "request": "launch",
+        "mode": "auto",
+        "program": "${workspaceFolder}/micro-services/shop",
+        "env": {
+          "PORT": "7004"
+        },
+      },
+      {
+        "name": "Run Warehouse Service",
+        "type": "go",
+        "request": "launch",
+        "mode": "auto",
+        "program": "${workspaceFolder}/micro-services/warehouse",
+        "env": {
+          "PORT": "7005"
+        },
+      }
+    ],
+    "compounds": [
+      {
+        "name": "Run All Services",
+        "configurations": [
+          "Run User Service",
+          "Run Product Service",
+          "Run Order Service",
+          "Run Shop Service",
+          "Run Warehouse Service"
+        ]
+      }
+    ] 
+  }
