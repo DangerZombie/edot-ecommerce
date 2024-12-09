@@ -1,30 +1,29 @@
 # Build Stage
 FROM golang:1.22 AS builder
 
-# Specify the working directory in the container
 WORKDIR /app
 
-# Copy the go.mod and go.sum files first
+# Copy dependencies
 COPY go.mod go.sum ./
 RUN go mod download
 
-# Copy the entire source code
+# Copy entire source code
 COPY . .
 
-# Go to the appropriate service directory
+# Set working directory to service folder and build
 WORKDIR /app/micro-services/user
-
-# Build Go applications for user-service
 RUN go build -o /bin/service .
 
 # Runtime Stage
 FROM ubuntu:22.04
 
-# Copy the binary that has been built
+# Copy binary and migrations
 COPY --from=builder /bin/service /bin/service
+COPY --from=builder /app/micro-services/user/migrations /usr/bin/migrations
 
-# Copy the migrations folder from the builder stage into the runtime image
-COPY ./micro-services/user/migrations /app/micro-services/user/migrations
+# Add access
+RUN chmod -R 644 /usr/bin/migrations
 
-# Determine the entry point
+# Set working directory and entry point
+WORKDIR /usr/bin
 ENTRYPOINT ["/bin/service"]

@@ -67,6 +67,7 @@ project/
 │   │   ├── models/
 │   │   ├── repository/
 │   │   ├── service/
+│   │   ├── Dockerfile
 │   │   ├── main.go 
 │   ├── product/ 
 │   │   ├── config/
@@ -76,6 +77,7 @@ project/
 │   │   ├── models/
 │   │   ├── repository/
 │   │   ├── service/
+│   │   ├── Dockerfile
 │   │   ├── main.go 
 │   ├── shop/ 
 │   │   ├── config/
@@ -85,6 +87,7 @@ project/
 │   │   ├── models/
 │   │   ├── repository/
 │   │   ├── service/
+│   │   ├── Dockerfile
 │   │   ├── main.go 
 │   ├── user/ 
 │   │   ├── config/
@@ -94,6 +97,7 @@ project/
 │   │   ├── models/
 │   │   ├── repository/
 │   │   ├── service/
+│   │   ├── Dockerfile
 │   │   ├── main.go 
 │   ├── warehouse/ 
 │   │   ├── config/
@@ -104,10 +108,10 @@ project/
 │   │   ├── models/
 │   │   ├── repository/
 │   │   ├── service/
+│   │   ├── Dockerfile
 │   │   ├── main.go 
 │   └── ...
 ├── go.mod 
-├── Dockerfile
 ├── docker-compose.yaml
 ├── Makefile
 └── ...

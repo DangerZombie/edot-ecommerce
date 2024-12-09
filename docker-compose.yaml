@@ -6,8 +6,7 @@ services:
     environment:
       PORT: "7001"
     volumes:
-      - ./data/ecommerce.db:/app/data/ecommerce.db
-      - ./micro-services/user/migrations:/app/micro-services/user/migrations
+      - ./micro-services/user/migrations:/usr/bin/migrations
     ports:
       - "7001:7001"
 
@@ -18,8 +17,7 @@ services:
     environment:
       PORT: "7002"
     volumes:
-      - ./data/ecommerce.db:/app/data/ecommerce.db
-      - ./micro-services/product/migrations:/app/micro-services/product/migrations
+      - ./micro-services/product/migrations:/usr/bin/migrations
     ports:
       - "7002:7002"
 
@@ -30,8 +28,7 @@ services:
     environment:
       PORT: "7003"
     volumes:
-      - ./data/ecommerce.db:/app/data/ecommerce.db
-      - ./micro-services/order/migrations:/app/micro-services/order/migrations
+      - ./micro-services/order/migrations:/usr/bin/migrations
     ports:
       - "7003:7003"
 
@@ -42,8 +39,7 @@ services:
     environment:
       PORT: "7004"
     volumes:
-      - ./data/ecommerce.db:/app/data/ecommerce.db
-      - ./micro-services/shop/migrations:/app/micro-services/shop/migrations
+      - ./micro-services/shop/migrations:/usr/bin/migrations
     ports:
       - "7004:7004"
 
@@ -54,7 +50,6 @@ services:
     environment:
       PORT: "7005"
     volumes:
-      - ./data/ecommerce.db:/app/data/ecommerce.db
-      - ./micro-services/warehouse/migrations:/app/micro-services/warehouse/migrations
+      - ./micro-services/warehouse/migrations:/usr/bin/migrations
     ports:
       - "7005:7005"
